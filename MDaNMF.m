@@ -12,7 +12,7 @@ verbose = option.verbose;
 UpdateVi = option.UpdateVi;
 lambda = option.lambda;
 
-dnormarray = zeros(maxiter);
+dnormarray = zeros(maxiter,1);
 
 p = numel(layers);
 [xx yy zz]=size(A);
@@ -116,16 +116,17 @@ for iter = 1:maxiter
             Vd_sum=zeros(layers(end),xx);
             VPA=zeros(layers(end),xx);
             VPD=zeros(layers(end),xx);
+            
             for i_view=1:zz %视图循环
                 VPA=VPA+ lambda(i_view) * VP * A(:,:,i_view);
                 Vu_sum = Vu_sum+2 * P{i_view}' * A(:,:,i_view) ;
                 
                 VPD= VPD+ lambda(i_view) * VP * D{i_view};
-                Vd_sum =Vd_sum+ P{i_view}' * P{i_view} * VP ;
+                Vd_sum =Vd_sum+ P{i_view}' * P{i_view} * VP+VP ;
             end
             
             
-            VP = VP .* (Vu_sum+VPA) ./ max((Vd_sum+VP+VPD), 1e-10);
+            VP = VP .* (Vu_sum+VPA) ./ max((Vd_sum+VPD), 1e-10);
             display(sprintf('Update Layer #%d ...#%d ...VP ', i,i_view));
         end
         % 更新VP
@@ -156,7 +157,7 @@ for i_view=1:zz
     Up=Up_All{i_view};
     lambda=lambda_all(i_view);
     A=A_All(:,:,i_view);
-    error = norm(A - Up * Vp, 'fro')^2 + norm(Vp - Up' * A, 'fro')^2 %+ lambda * trace(Vp * L * Vp');
+    error = norm(A - Up * Vp, 'fro')^2 + norm(Vp - Up' * A, 'fro')^2 + lambda * trace(Vp * L * Vp');
     error = sqrt(error);
     error_sum=error_sum+error;
 end
