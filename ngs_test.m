@@ -26,7 +26,7 @@ for loop=1:1
     option.kmeans=1;
     K = length(unique(gnd));
     option.K=K;
-    layers = [169,128,option.K]; %% three layers, the last layer corresponds to the number of communities to detect
+    layers = [512,64,option.K]; %% three layers, the last layer corresponds to the number of communities to detect
     p = numel(layers);
     %% Deep AE NMF
     [U{loop}, V{loop},VP{loop}, dnorm{loop}, dnormarray{loop}]=MDaNMF_A(AData, layers, option);
