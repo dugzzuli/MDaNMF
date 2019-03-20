@@ -23,6 +23,7 @@ if vmin < 0
     while abs(f) > 10^-10
         v1 = v0 - lambda_m;
         posidx = v1>0;
+        
         npos = sum(posidx);
         g = -npos;
         f = sum(v1(posidx)) - k;

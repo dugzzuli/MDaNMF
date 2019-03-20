@@ -1,4 +1,4 @@
-function [U, V,VP, dnorm, dnormarray] = MDaNMF(A, layers, option)
+function [U, V,VP, dnorm, dnormarray] = MDaNMF(A, layers,Ws, option)
 
 %%%%%%%%%%%%%%%%%%%%
 % A: n x n x v
@@ -43,7 +43,7 @@ for i_view=1:zz
     end
     
 end
-VP=V{end,end};
+VP=V{1,end};
 for i_view=2:zz
     VP=VP+V{i_view,end};
 end
@@ -61,8 +61,8 @@ end
 Q = cell(zz, p + 1);
 P=cell(zz,1);
 for i_view=1:zz %视图循环
-    D{i_view} = diag(sum(A(:,:,i_view)));
-    L{i_view} = D{i_view} - A(:,:,i_view);
+    D{i_view} = diag(sum(Ws{i_view}));
+    L{i_view} = D{i_view} - Ws{i_view};
 end
 
 for iter = 1:maxiter
@@ -118,8 +118,8 @@ for iter = 1:maxiter
             VPD=zeros(layers(end),xx);
             
             for i_view=1:zz %视图循环
-                VPA=VPA+ lambda(i_view) * VP * A(:,:,i_view);
-                Vu_sum = Vu_sum+2 * P{i_view}' * A(:,:,i_view) ;
+                VPA=VPA+ lambda(i_view) * VP * Ws{i_view};
+                Vu_sum = Vu_sum+2 * P{i_view}'*Ws{i_view} ;
                 
                 VPD= VPD+ lambda(i_view) * VP * D{i_view};
                 Vd_sum =Vd_sum+ P{i_view}' * P{i_view} * VP+VP ;
