@@ -12,6 +12,11 @@ gnd_len=length(gnd);
 AData=zeros(gnd_len,gnd_len,length(data));
 kk= floor(log2(gnd_len)) + 1;
 nn=7;
+
+for i = 1:length(data)
+    data{i} = data{i} / sum(sum(data{i}));
+end
+
 for i = 1:length(data)
     KK=scale_dist3_knn(pdist2(data{i}',data{i}','cosine'),nn,kk,true);
     AData(:,:,i) = KK;
@@ -26,7 +31,7 @@ for loop=1:1
     option.kmeans=1;
     K = length(unique(gnd));
     option.K=K;
-    layers = [512,64,option.K]; %% three layers, the last layer corresponds to the number of communities to detect
+    layers = [option.K]; %% three layers, the last layer corresponds to the number of communities to detect
     p = numel(layers);
     %% Deep AE NMF
     [U{loop}, V{loop},VP{loop}, dnorm{loop}, dnormarray{loop}]=MDaNMF_A(AData, layers, option);

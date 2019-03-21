@@ -22,7 +22,7 @@ for loop=1:1
     option.maxiter_pre = 500;
     option.verbose = 1;
     option.UpdateVi = 1;
-    option.lambda = [1,1,1];
+    option.lambda = [1,1,1,1];
     option.kmeans=1;
     K = length(unique(gnd));
     option.K=K;
@@ -31,7 +31,7 @@ for loop=1:1
     %% Deep AE NMF
     [U{loop}, V{loop},VP{loop}, dnorm{loop}, dnormarray{loop}]=MDaNMF_A(AData, layers, option);
     Vp = VP{loop}';
-    [ac(loop),nmi_value(loop),RI(loop)]=printResult(Vp, gnd, option.K, option.kmeans);
+    [ac(loop),nmi_value(loop),RI(loop)]=printResult(Vp, gnd', option.K, option.kmeans);
 end
 mAc=mean(ac);
 mNmi=mean(nmi_value);
