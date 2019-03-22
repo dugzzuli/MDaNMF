@@ -2,8 +2,9 @@ function [U, V, dnorm] = ShallowNMF(X, r, maxiter, tolfun)
 
 [m, n] = size(X);
 
-U = rand(m, r);
-V = rand(r, n);
+[U,V]=svdnmf_init(X,r);
+% U = rand(m, r);
+% V = rand(r, n);
 
 dnorm0 = norm(X - U * V, 'fro') + norm(V - U' * X, 'fro');
 

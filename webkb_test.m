@@ -26,7 +26,7 @@ for i = 1:length(data)
     AData(:,:,i) = replaceNAN(KK);
 end
 
-for loop=1:1
+for loop=1:20
     for l_i=1:length(lambdas)
         option.maxiter = 1000;
         option.tolfun = 1e-6;
@@ -53,4 +53,4 @@ end
     mAc=mean(ac);
     mNmi=mean(nmi_value);
     mRi=mean(RI);
-save ./result/WebKB1
+save ./finalresult/WebKB1

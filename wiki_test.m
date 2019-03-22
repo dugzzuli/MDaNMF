@@ -12,7 +12,7 @@ gnd_len=length(gnd);
 AData=zeros(gnd_len,gnd_len,length(data));
 kk= floor(log2(gnd_len)) + 1;
 nn=7;
-lambdas=[0.001];
+lambdas=[0.01,0.001];
 % for i = 1:length(data)
 %     data{i} = data{i} / sum(sum(data{i}));
 % end
@@ -20,14 +20,14 @@ for i = 1:length(data)
     KK=data{i}'*data{i};
     AData(:,:,i) = KK;
 end
-for loop=1:1
+for loop=1:20
      for l_i=1:length(lambdas)
     option.maxiter = 1000;
     option.tolfun = 1e-6;
     option.maxiter_pre = 500;
     option.verbose = 1;
-    option.UpdateVi = 0;
-    option.lambda = [lambdas(l_i),lambdas(l_i),lambdas(l_i)];
+    option.UpdateVi = 1;
+    option.lambda = [lambdas(l_i),lambdas(l_i),lambdas(l_i),lambdas(l_i),lambdas(l_i)];
     option.kmeans=1;
     K = length(unique(gnd));
     option.K=K;
@@ -42,4 +42,4 @@ end
 mAc=mean(ac);
 mNmi=mean(nmi_value);
 mRi=mean(RI);
-save ./result/WikipediaArticles
+save ./finalresult/WikipediaArticles
