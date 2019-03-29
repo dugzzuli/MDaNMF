@@ -1,4 +1,4 @@
-function [U, V,VP, dnorm, dnormarray] = MDaNMF(A, layers, option)
+function [U, V,Vall, dnorm, dnormarray] = MDaNMF_A(A, layers, option)
 
 %%%%%%%%%%%%%%%%%%%%
 % A: n x n x v
@@ -11,7 +11,7 @@ maxiter_pre = option.maxiter_pre;
 verbose = option.verbose;
 UpdateVi = option.UpdateVi;
 lambda = option.lambda;
-
+l2=option.l2;
 dnormarray = zeros(maxiter,1);
 
 p = numel(layers);
@@ -122,24 +122,35 @@ for iter = 1:maxiter
                 Vu_sum = Vu_sum+2 * P{i_view}' * A(:,:,i_view) ;
                 
                 VPD= VPD+ lambda(i_view) * VP * D{i_view};
-                Vd_sum =Vd_sum+ P{i_view}' * P{i_view} * VP+VP ;
+                Vd_sum =Vd_sum+ P{i_view}' * P{i_view} * VP+l2*VP+VP ;
             end
             
             
             VP = VP .* (Vu_sum+VPA) ./ max((Vd_sum+VPD), 1e-10);
             display(sprintf('Update Layer #%d ...#%d ...VP ', i,i_view));
         end
-        % 更新VP
         
     end %循环层终止
     
+    % 更新VP
+    if(mode(i,5)==0)
+        printResult(VP, option.gnd', option.K, option.kmeans);
+    end
     
     
     dnorm = cost_function_all(A, P, VP,L,lambda);
     
     display(sprintf('Converged at iteration #%d ...', iter));
     
+    if iter == 1
+        Vall = VP;
+        dnorm0=dnorm;
+    end
+    
     dnormarray(iter) = dnorm;
+    if(dnorm<dnorm0)
+        Vall = VP;
+    end
     if iter > 1 && abs(dnorm0 - dnorm) <= tolfun
         display(sprintf('Converged at iteration #%d ...', iter));
         break; % converge

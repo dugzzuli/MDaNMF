@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MatlabDemoNative</name>
+    </assembly>
+    <members>
+        <member name="T:MatlabDemoNative.MeasureTools">
+            <summary>
+            The MeasureTools class provides a CLS compliant, Object (native) interface to the
+            MATLAB functions contained in the files:
+            <newpara></newpara>
+            H:\dugking\MDaNMF\clustering\CalcMetrics.m
+            <newpara></newpara>
+            H:\dugking\MDaNMF\clustering\nmi.m
+            <newpara></newpara>
+            H:\dugking\MDaNMF\clustering\printResult4C.m
+            </summary>
+            <remarks>
+            @Version 4.0
+            </remarks>
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.#cctor">
+            <summary internal= "true">
+            The static constructor instantiates and initializes the MATLAB Runtime instance.
+            </summary>
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.#ctor">
+            <summary>
+            Constructs a new instance of the MeasureTools class.
+            </summary>
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.Finalize">
+            <summary internal= "true">
+            Class destructor called by the CLR garbage collector.
+            </summary>
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.Dispose">
+            <summary>
+            Frees the native resources associated with this object
+            </summary>
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.Dispose(System.Boolean)">
+            <summary internal= "true">
+            Internal dispose function
+            </summary>
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.CalcMetrics">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the CalcMetrics MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.CalcMetrics(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the CalcMetrics MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="label">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.CalcMetrics(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the CalcMetrics MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="label">Input argument #1</param>
+             <param name="result">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.CalcMetrics(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the CalcMetrics MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.CalcMetrics(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the CalcMetrics MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="label">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.CalcMetrics(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the CalcMetrics MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="label">Input argument #1</param>
+             <param name="result">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.CalcMetrics(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the CalcMetrics function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.nmi">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the nmi MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Nomalized mutual information
+             Written by Mo Chen (mochen@ie.cuhk.edu.hk). March 2009.
+             assert(length(label) == length(result));
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.nmi(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the nmi MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Nomalized mutual information
+             Written by Mo Chen (mochen@ie.cuhk.edu.hk). March 2009.
+             assert(length(label) == length(result));
+             </remarks>
+             <param name="label">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.nmi(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the nmi MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Nomalized mutual information
+             Written by Mo Chen (mochen@ie.cuhk.edu.hk). March 2009.
+             assert(length(label) == length(result));
+             </remarks>
+             <param name="label">Input argument #1</param>
+             <param name="result">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.nmi(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the nmi MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Nomalized mutual information
+             Written by Mo Chen (mochen@ie.cuhk.edu.hk). March 2009.
+             assert(length(label) == length(result));
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.nmi(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the nmi MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Nomalized mutual information
+             Written by Mo Chen (mochen@ie.cuhk.edu.hk). March 2009.
+             assert(length(label) == length(result));
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="label">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.nmi(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the nmi MATLAB function.
+             </summary>
+             <remarks>
+             M-Documentation:
+             Nomalized mutual information
+             Written by Mo Chen (mochen@ie.cuhk.edu.hk). March 2009.
+             assert(length(label) == length(result));
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="label">Input argument #1</param>
+             <param name="result">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.nmi(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the nmi function in which the input and output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             M-Documentation:
+             Nomalized mutual information
+             Written by Mo Chen (mochen@ie.cuhk.edu.hk). March 2009.
+             assert(length(label) == length(result));
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.printResult4C">
+             <summary>
+             Provides a single output, 0-input Objectinterface to the printResult4C MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.printResult4C(System.Object)">
+             <summary>
+             Provides a single output, 1-input Objectinterface to the printResult4C MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="indic">Input argument #1</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.printResult4C(System.Object,System.Object)">
+             <summary>
+             Provides a single output, 2-input Objectinterface to the printResult4C MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="indic">Input argument #1</param>
+             <param name="label">Input argument #2</param>
+             <returns>An Object containing the first output argument.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.printResult4C(System.Int32)">
+             <summary>
+             Provides the standard 0-input Object interface to the printResult4C MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.printResult4C(System.Int32,System.Object)">
+             <summary>
+             Provides the standard 1-input Object interface to the printResult4C MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="indic">Input argument #1</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.printResult4C(System.Int32,System.Object,System.Object)">
+             <summary>
+             Provides the standard 2-input Object interface to the printResult4C MATLAB
+             function.
+             </summary>
+             <remarks>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return.</param>
+             <param name="indic">Input argument #1</param>
+             <param name="label">Input argument #2</param>
+             <returns>An Array of length "numArgsOut" containing the output
+             arguments.</returns>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.printResult4C(System.Int32,System.Object[]@,System.Object[],System.Object[])">
+             <summary>
+             Provides an interface for the printResult4C function in which the input and
+             output
+             arguments are specified as an array of Objects.
+             </summary>
+             <remarks>
+             This method will allocate and return by reference the output argument
+             array.<newpara></newpara>
+             </remarks>
+             <param name="numArgsOut">The number of output arguments to return</param>
+             <param name= "argsOut">Array of Object output arguments</param>
+             <param name= "argsIn">Array of Object input arguments</param>
+             <param name= "varArgsIn">Array of Object representing variable input
+             arguments</param>
+            
+        </member>
+        <member name="M:MatlabDemoNative.MeasureTools.WaitForFiguresToDie">
+             <summary>
+             This method will cause a MATLAB figure window to behave as a modal dialog box.
+             The method will not return until all the figure windows associated with this
+             component have been closed.
+             </summary>
+             <remarks>
+             An application should only call this method when required to keep the
+             MATLAB figure window from disappearing.  Other techniques, such as calling
+             Console.ReadLine() from the application should be considered where
+             possible.</remarks>
+            
+        </member>
+    </members>
+</doc>

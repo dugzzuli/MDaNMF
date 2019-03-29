@@ -12,14 +12,14 @@ gnd_len=length(gnd);
 AData=zeros(gnd_len,gnd_len,length(data));
 kk= floor(log2(gnd_len)) + 1;
 nn=7;
-lambdas=[1000,100,10,1,0.1,0.01,0.001];
+lambdas=[1];
 for i = 1:length(data)
     KK=scale_dist3_knn(pdist2(data{i}',data{i}','cosine'),nn,kk,true);
     AData(:,:,i) = KK;
 end
 for loop=1:20
     for l_i=1:length(lambdas)
-        option.maxiter = 500;
+        option.maxiter = 1000;
         option.tolfun = 1e-6;
         option.maxiter_pre = 500;
         option.verbose = 1;
@@ -28,10 +28,11 @@ for loop=1:20
         option.kmeans=1;
         K = length(unique(gnd));
         option.K=K;
-        layers = [128,64,option.K]; %% three layers, the last layer corresponds to the number of communities to detect
+        layers = [3*floor(sqrt(gnd_len)),floor(sqrt(gnd_len)),option.K]; %% three layers, the last layer corresponds to the number of communities to detect
         p = numel(layers);
         %% Deep AE NMF
         p = numel(layers);
+        option.l2=0.001;
         %% Deep AE NMF
         [U{loop,l_i}, V{loop,l_i},VP{loop,l_i}, dnorm{loop,l_i}, dnormarray{loop,l_i}]=MDaNMF_A(AData, layers, option);
         Vp = VP{loop,l_i}';
@@ -41,4 +42,4 @@ end
 mAc=mean(ac);
 mNmi=mean(nmi_value);
 mRi=mean(RI);
-save ./finalresult/BBC
+save ./finalresult/BBC_1

@@ -1,7 +1,7 @@
 function RI = RandIndex(X,Y)
 %RANDINDEX X&Y are two vectors representing the label of the dataset.
 % X input; Y output.
-
+warning('off');
 TP = 0;
 TN = 0;
 N = length(X);
